@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISMUN-I | The Modern Odyssey</title>
+    <title>SISMUN-I | Registration</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
@@ -21,6 +21,7 @@
             background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
             color: var(--text); 
             font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         .greek-border {
@@ -32,7 +33,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 3px; }
-        .logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.6rem; color: var(--secondary); }
+        .logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.6rem; color: var(--secondary); text-decoration: none; }
 
         header { padding: 8vh 0; text-align: center; }
         .hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 1rem; font-weight: 900; }
@@ -41,33 +42,32 @@
         .section-header h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; color: var(--secondary); }
 
         /* Committee Grid */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 1.5rem; 
-            margin-bottom: 5rem;
-        }
-
-        .card { 
-            background: var(--glass); 
-            padding: 2.5rem 1.5rem; 
-            border: 1px solid var(--border); 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover { border-color: var(--secondary); background: rgba(189, 0, 0, 0.05); transform: translateY(-5px); }
-        
-        .card-num { 
-            position: absolute; top: 10px; right: 15px; 
-            font-family: 'Cinzel', serif; font-weight: 900; 
-            color: rgba(255,255,255,0.05); font-size: 3rem; 
-        }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
+        .card { background: var(--glass); padding: 2.5rem 1.5rem; border: 1px solid var(--border); position: relative; overflow: hidden; transition: 0.3s; }
+        .card:hover { border-color: var(--secondary); background: rgba(189, 0, 0, 0.05); }
+        .card-num { position: absolute; top: 10px; right: 15px; font-family: 'Cinzel', serif; font-weight: 900; color: rgba(255,255,255,0.05); font-size: 3rem; }
         .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
         .card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(189,0,0,0.3); display: inline-block; padding-bottom: 5px;}
         .card p { font-size: 0.85rem; color: #bbb; font-weight: 300; }
+
+        /* Registration Hub */
+        .reg-hub { padding: 6rem 0; background: rgba(0,0,0,0.2); margin-top: 4rem; border-top: 1px solid var(--border); }
+        .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        
+        .reg-card { 
+            padding: 2rem; 
+            border: 1px solid var(--border); 
+            text-align: center; 
+            transition: 0.4s; 
+            text-decoration: none; 
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .reg-card:hover { background: var(--secondary); border-color: var(--secondary); transform: scale(1.03); }
+        .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .reg-card span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; }
 
         footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); }
 
@@ -79,109 +79,52 @@
     <div class="greek-border"></div>
 
     <div class="container">
-        <nav><div class="logo">SISMUN—I</div></nav>
+        <nav>
+            <a href="#" class="logo">SISMUN—I</a>
+            <div style="font-size: 0.7rem; letter-spacing: 2px;">
+                <a href="#register" style="color: var(--secondary); text-decoration: none; font-weight: 700;">PORTAL OPEN</a>
+            </div>
+        </nav>
 
         <header>
             <h1 class="hero-title">THE TWELVE<br>COUNCILS.</h1>
         </header>
 
-        <div class="section-header"><h2>Committees</h2></div>
-
         <section class="grid">
-            <!-- 1. DISEC -->
-            <div class="card">
-                <div class="card-num">I</div>
-                <h4>The Strategist</h4>
-                <h3>DISEC (Ares)</h3>
-                <p>Disarmament and International Security. Addressing global conflict with the precision of the God of War.</p>
-            </div>
+            <div class="card"><div class="card-num">I</div><h4>The Strategist</h4><h3>DISEC (Ares)</h3><p>Disarmament and International Security. Addressing global conflict with the precision of the God of War.</p></div>
+            <div class="card"><div class="card-num">II</div><h4>The Merchant</h4><h3>WTO (Hermes)</h3><p>World Trade Organization. Navigating modern silk roads under the watchful eye of the God of Commerce.</p></div>
+            <div class="card"><div class="card-num">III</div><h4>The Judge</h4><h3>UNODC (Minos)</h3><p>Drugs and Crime. Imposing order and justice upon the shadows of the global underworld.</p></div>
+            <div class="card"><div class="card-num">IV</div><h4>The Celestial</h4><h3>UNOOSA (Ouranos)</h3><p>Outer Space Affairs. Looking toward the heavens to govern the final frontier of mankind.</p></div>
+            <div class="card"><div class="card-num">V</div><h4>The Nurturer</h4><h3>UNICEF (Demeter)</h3><p>The Children’s Fund. Protecting the future generations and the harvest of human potential.</p></div>
+            <div class="card"><div class="card-num">VI</div><h4>The Sun-Forge</h4><h3>IAEA (Apollo)</h3><p>Atomic Energy Agency. Managing the power of the sun with clarity and absolute caution.</p></div>
+            <div class="card"><div class="card-num">VII</div><h4>The Architect</h4><h3>CCC (Hephaestus)</h3><p>Continuous Crisis Committee. Forging solutions as the world shifts in real-time.</p></div>
+            <div class="card"><div class="card-num">VIII</div><h4>The King</h4><h3>UNSC (Zeus)</h3><p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes fate.</p></div>
+            <div class="card"><div class="card-num">IX</div><h4>The Shadow</h4><h3>HUNSC (Hades)</h3><p>Historical Security Council. Delving into the past to rewrite the fate of the unseen.</p></div>
+            <div class="card"><div class="card-num">X</div><h4>The Weaver</h4><h3>AHLC (Clotho)</h3><p>Alternate History Lahore Conference. Spanning the threads of "What If" to create a new reality.</p></div>
+            <div class="card"><div class="card-num">XI</div><h4>The Muse</h4><h3>IPC (Calliope)</h3><p>International Press Corps. Recording the epic and telling the stories of the gods.</p></div>
+            <div class="card"><div class="card-num">XII</div><h4>The Victor</h4><h3>FIA (Nike)</h3><p>Formula 1 Council. Precision, speed, and the relentless pursuit of the laurel wreath.</p></div>
+        </section>
 
-            <!-- 2. WTO -->
-            <div class="card">
-                <div class="card-num">II</div>
-                <h4>The Merchant</h4>
-                <h3>WTO (Hermes)</h3>
-                <p>World Trade Organization. Navigating the modern silk roads under the watchful eye of the God of Commerce.</p>
-            </div>
-
-            <!-- 3. UNODC -->
-            <div class="card">
-                <div class="card-num">III</div>
-                <h4>The Judge</h4>
-                <h3>UNODC (Minos)</h3>
-                <p>Drugs and Crime. Imposing order and justice upon the shadows of the global underworld.</p>
-            </div>
-
-            <!-- 4. UNOOSA -->
-            <div class="card">
-                <div class="card-num">IV</div>
-                <h4>The Celestial</h4>
-                <h3>UNOOSA (Ouranos)</h3>
-                <p>Outer Space Affairs. Looking toward the heavens to govern the final frontier of mankind.</p>
-            </div>
-
-            <!-- 5. UNICEF -->
-            <div class="card">
-                <div class="card-num">V</div>
-                <h4>The Nurturer</h4>
-                <h3>UNICEF (Demeter)</h3>
-                <p>The Children’s Fund. Protecting the future generations and the harvest of human potential.</p>
-            </div>
-
-            <!-- 6. IAEA -->
-            <div class="card">
-                <div class="card-num">VI</div>
-                <h4>The Sun-Forge</h4>
-                <h3>IAEA (Apollo)</h3>
-                <p>Atomic Energy Agency. Managing the power of the sun with clarity, science, and absolute caution.</p>
-            </div>
-
-            <!-- 7. CCC -->
-            <div class="card">
-                <div class="card-num">VII</div>
-                <h4>The Architect</h4>
-                <h3>CCC (Hephaestus)</h3>
-                <p>Continuous Crisis Committee. Forging solutions in the heat of the forge as the world shifts in real-time.</p>
-            </div>
-
-            <!-- 8. UNSC -->
-            <div class="card">
-                <div class="card-num">VIII</div>
-                <h4>The King</h4>
-                <h3>UNSC (Zeus)</h3>
-                <p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p>
-            </div>
-
-            <!-- 9. HUNSC -->
-            <div class="card">
-                <div class="card-num">IX</div>
-                <h4>The Shadow</h4>
-                <h3>HUNSC (Hades)</h3>
-                <p>Historical Security Council. Delving into the annals of the past to rewrite the fate of the unseen.</p>
-            </div>
-
-            <!-- 10. AHLC -->
-            <div class="card">
-                <div class="card-num">X</div>
-                <h4>The Weaver</h4>
-                <h3>AHLC (Clotho)</h3>
-                <p>Alternate History Lahore Conference. Spanning the threads of "What If" to create a new reality.</p>
-            </div>
-
-            <!-- 11. IPC -->
-            <div class="card">
-                <div class="card-num">XI</div>
-                <h4>The Muse</h4>
-                <h3>IPC (Calliope)</h3>
-                <p>International Press Corps. Recording the epic of the assembly and telling the stories of the gods.</p>
-            </div>
-
-            <!-- 12. FIA -->
-            <div class="card">
-                <div class="card-num">XII</div>
-                <h4>The Charioteer</h4>
-                <h3>FIA (Helios)</h3>
-                <p>Formula 1 Council. Precision, speed, and the relentless pursuit of the horizon.</p>
+        <section id="register" class="reg-hub">
+            <div class="section-header"><h2>The Portal</h2></div>
+            <div class="reg-grid">
+                <!-- Replace '#' with your actual Google Form or Registration links -->
+                <a href="#" class="reg-card">
+                    <span>Executive Board</span>
+                    <h4>Register for EB</h4>
+                </a>
+                <a href="#" class="reg-card">
+                    <span>Individual</span>
+                    <h4>Single Delegation</h4>
+                </a>
+                <a href="#" class="reg-card">
+                    <span>Partnership</span>
+                    <h4>Double Delegation</h4>
+                </a>
+                <a href="#" class="reg-card">
+                    <span>Ambassador</span>
+                    <h4>Register for CA</h4>
+                </a>
             </div>
         </section>
 
