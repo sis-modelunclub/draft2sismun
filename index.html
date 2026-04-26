@@ -16,98 +16,62 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body { 
             background-color: var(--primary); 
-            /* Subtle marble-like grain overlay */
             background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
             color: var(--text); 
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
         }
 
-        /* Greek Key Header Accent */
         .greek-border {
-            width: 100%;
-            height: 8px;
-            background: var(--secondary);
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0 0h20v20H0V0zm2 2v16h16V2H2zm2 2h12v4h-2V6H6v8h8v-2h-2v2H8V8h8V4H4z" fill="white"/></svg>');
-            mask-repeat: repeat-x;
+            width: 100%; height: 8px; background: var(--secondary);
             -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0 0h20v20H0V0zm2 2v16h16V2H2zm2 2h12v4h-2V6H6v8h8v-2h-2v2H8V8h8V4H4z" fill="white"/></svg>');
-            -webkit-mask-repeat: repeat-x;
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0 0h20v20H0V0zm2 2v16h16V2H2zm2 2h12v4h-2V6H6v8h8v-2h-2v2H8V8h8V4H4z" fill="white"/></svg>');
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        nav { 
-            padding: 3rem 0; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
+        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 3px; }
         .logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.6rem; color: var(--secondary); }
-        .nav-links a { color: var(--text); text-decoration: none; margin-left: 2rem; font-size: 0.75rem; transition: 0.3s; font-weight: 600; }
-        .nav-links a:hover { color: var(--secondary); text-shadow: 0 0 10px var(--secondary); }
 
-        header { 
-            padding: 10vh 0; 
-            text-align: center;
+        header { padding: 8vh 0; text-align: center; }
+        .hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 1rem; font-weight: 900; }
+        
+        .section-header { margin-top: 4rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem; }
+        .section-header h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; color: var(--secondary); }
+
+        /* Committee Grid */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+            margin-bottom: 5rem;
         }
-        .hero-tagline { font-family: 'Cinzel', serif; color: var(--secondary); font-size: 1rem; letter-spacing: 5px; margin-bottom: 1rem; display: block;}
-        .hero-title { 
-            font-family: 'Cinzel', serif; 
-            font-size: clamp(3rem, 10vw, 7rem); 
-            line-height: 0.85; 
-            margin-bottom: 2rem; 
-            font-weight: 900; 
-            text-transform: uppercase;
-        }
-        .hero-desc { font-weight: 200; font-size: 1.2rem; max-width: 650px; margin: 0 auto 3rem; color: #ccc; }
 
-        .cta-group { display: flex; gap: 1rem; justify-content: center; }
-        .btn { 
-            padding: 1rem 2.5rem; 
-            text-decoration: none; 
-            font-family: 'Cinzel', serif;
-            font-weight: 700; 
-            font-size: 0.9rem;
-            transition: 0.4s;
-        }
-        .btn-primary { background: var(--secondary); color: white; border: 1px solid var(--secondary); }
-        .btn-primary:hover { background: transparent; border-color: white; }
-        .btn-outline { border: 1px solid var(--border); color: white; }
-        .btn-outline:hover { background: var(--text); color: var(--primary); }
-
-        /* The "Council" Section */
-        .section-header { margin-top: 8rem; text-align: left; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem;}
-        .section-header h2 { font-family: 'Cinzel', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 3px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
         .card { 
             background: var(--glass); 
-            padding: 3rem 2rem; 
+            padding: 2.5rem 1.5rem; 
             border: 1px solid var(--border); 
-            transition: 0.4s ease;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { border-color: var(--secondary); background: rgba(189, 0, 0, 0.03); transform: scale(1.02); }
-        .card h3 { font-family: 'Cinzel', serif; margin-bottom: 1rem; font-size: 1.5rem; color: var(--secondary); }
-        .card p { font-size: 0.9rem; color: #999; font-weight: 300; }
 
-        footer { 
-            margin-top: 10rem;
-            padding: 4rem 0; 
-            text-align: center; 
-            border-top: 1px solid var(--border); 
+        .card:hover { border-color: var(--secondary); background: rgba(189, 0, 0, 0.05); transform: translateY(-5px); }
+        
+        .card-num { 
+            position: absolute; top: 10px; right: 15px; 
+            font-family: 'Cinzel', serif; font-weight: 900; 
+            color: rgba(255,255,255,0.05); font-size: 3rem; 
         }
-        .footer-logo { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 1rem; display: block; opacity: 0.5;}
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-title { font-size: 3.5rem; }
-            .cta-group { flex-direction: column; }
-        }
+        .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
+        .card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(189,0,0,0.3); display: inline-block; padding-bottom: 5px;}
+        .card p { font-size: 0.85rem; color: #bbb; font-weight: 300; }
+
+        footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); }
+
+        @media (max-width: 768px) { .hero-title { font-size: 3rem; } }
     </style>
 </head>
 <body>
@@ -115,49 +79,115 @@
     <div class="greek-border"></div>
 
     <div class="container">
-        <nav>
-            <div class="logo">SISMUN—I</div>
-            <div class="nav-links">
-                <a href="#">The Oracle</a>
-                <a href="#">Councils</a>
-                <a href="#">Secretariat</a>
-                <a href="#" style="color: var(--secondary)">Register</a>
-            </div>
-        </nav>
+        <nav><div class="logo">SISMUN—I</div></nav>
 
         <header>
-            <span class="hero-tagline">The Pantheon Awaits</span>
-            <h1 class="hero-title">MODERN<br>ODYSSEY.</h1>
-            <p class="hero-desc">SISMUN First Edition. A retrospective on diplomacy, power, and the myths we create in the digital age.</p>
-            <div class="cta-group">
-                <a href="#" class="btn btn-primary">ASCEND TO DEBATE</a>
-                <a href="#" class="btn btn-outline">DOWNLOAD GUIDE</a>
-            </div>
+            <h1 class="hero-title">THE TWELVE<br>COUNCILS.</h1>
         </header>
 
-        <div class="section-header">
-            <h2>The Councils</h2>
-        </div>
+        <div class="section-header"><h2>Committees</h2></div>
 
         <section class="grid">
+            <!-- 1. DISEC -->
             <div class="card">
-                <h3>ZEUS</h3>
-                <p>UN Security Council. High-altitude diplomacy where every word carries the weight of a thunderbolt.</p>
+                <div class="card-num">I</div>
+                <h4>The Strategist</h4>
+                <h3>DISEC (Ares)</h3>
+                <p>Disarmament and International Security. Addressing global conflict with the precision of the God of War.</p>
             </div>
+
+            <!-- 2. WTO -->
             <div class="card">
-                <h3>ATHENA</h3>
-                <p>DISEC. Strategic warfare and international security viewed through the lens of ancient wisdom.</p>
+                <div class="card-num">II</div>
+                <h4>The Merchant</h4>
+                <h3>WTO (Hermes)</h3>
+                <p>World Trade Organization. Navigating the modern silk roads under the watchful eye of the God of Commerce.</p>
             </div>
+
+            <!-- 3. UNODC -->
             <div class="card">
-                <h3>HERMES</h3>
-                <p>Press Corps. The modern messengers, weaving the thread of information across the global assembly.</p>
+                <div class="card-num">III</div>
+                <h4>The Judge</h4>
+                <h3>UNODC (Minos)</h3>
+                <p>Drugs and Crime. Imposing order and justice upon the shadows of the global underworld.</p>
+            </div>
+
+            <!-- 4. UNOOSA -->
+            <div class="card">
+                <div class="card-num">IV</div>
+                <h4>The Celestial</h4>
+                <h3>UNOOSA (Ouranos)</h3>
+                <p>Outer Space Affairs. Looking toward the heavens to govern the final frontier of mankind.</p>
+            </div>
+
+            <!-- 5. UNICEF -->
+            <div class="card">
+                <div class="card-num">V</div>
+                <h4>The Nurturer</h4>
+                <h3>UNICEF (Demeter)</h3>
+                <p>The Children’s Fund. Protecting the future generations and the harvest of human potential.</p>
+            </div>
+
+            <!-- 6. IAEA -->
+            <div class="card">
+                <div class="card-num">VI</div>
+                <h4>The Sun-Forge</h4>
+                <h3>IAEA (Apollo)</h3>
+                <p>Atomic Energy Agency. Managing the power of the sun with clarity, science, and absolute caution.</p>
+            </div>
+
+            <!-- 7. CCC -->
+            <div class="card">
+                <div class="card-num">VII</div>
+                <h4>The Architect</h4>
+                <h3>CCC (Hephaestus)</h3>
+                <p>Continuous Crisis Committee. Forging solutions in the heat of the forge as the world shifts in real-time.</p>
+            </div>
+
+            <!-- 8. UNSC -->
+            <div class="card">
+                <div class="card-num">VIII</div>
+                <h4>The King</h4>
+                <h3>UNSC (Zeus)</h3>
+                <p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p>
+            </div>
+
+            <!-- 9. HUNSC -->
+            <div class="card">
+                <div class="card-num">IX</div>
+                <h4>The Shadow</h4>
+                <h3>HUNSC (Hades)</h3>
+                <p>Historical Security Council. Delving into the annals of the past to rewrite the fate of the unseen.</p>
+            </div>
+
+            <!-- 10. AHLC -->
+            <div class="card">
+                <div class="card-num">X</div>
+                <h4>The Weaver</h4>
+                <h3>AHLC (Clotho)</h3>
+                <p>Alternate History Lahore Conference. Spanning the threads of "What If" to create a new reality.</p>
+            </div>
+
+            <!-- 11. IPC -->
+            <div class="card">
+                <div class="card-num">XI</div>
+                <h4>The Muse</h4>
+                <h3>IPC (Calliope)</h3>
+                <p>International Press Corps. Recording the epic of the assembly and telling the stories of the gods.</p>
+            </div>
+
+            <!-- 12. FIA -->
+            <div class="card">
+                <div class="card-num">XII</div>
+                <h4>The Charioteer</h4>
+                <h3>FIA (Helios)</h3>
+                <p>Formula 1 Council. Precision, speed, and the relentless pursuit of the horizon.</p>
             </div>
         </section>
 
         <footer>
-            <span class="footer-logo">SISMUN I</span>
-            <p style="font-size: 0.7rem; color: #666; letter-spacing: 2px;">EST. 2026 | BUILT FOR THE BOLD</p>
-            <div class="greek-border" style="margin-top: 2rem; opacity: 0.3;"></div>
+            <div class="greek-border" style="opacity: 0.2; margin-bottom: 2rem;"></div>
+            <p style="font-family: 'Cinzel', serif; letter-spacing: 3px; color: #666;">SISMUN I | THE MODERN ODYSSEY</p>
         </footer>
     </div>
 
