@@ -11,7 +11,7 @@
             --primary: #2b2828;
             --secondary: #bd0000;
             --text: #f4f4f4;
-            --glass: rgba(0, 0, 0, 0.6); /* Darker glass to see text over image */
+            --glass: rgba(0, 0, 0, 0.7);
             --border: rgba(255, 255, 255, 0.1);
         }
 
@@ -19,10 +19,9 @@
         
         body { 
             background-color: var(--primary); 
-            /* BACKGROUND IMAGE LOGIC */
-            /* Replace the URL below with your preferred background image */
-            background: linear-gradient(rgba(43, 40, 40, 0.85), rgba(43, 40, 40, 0.856)), 
-                        url('background.jpg.png'); 
+            /* ADD YOUR IMAGE URL BELOW */
+            background: linear-gradient(rgba(43, 40, 40, 0.9), rgba(43, 40, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1552525143-69022649a46a?q=80&w=2070'); 
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -31,15 +30,12 @@
             scroll-behavior: smooth;
         }
 
-        /* The Carbon Pattern Overlay */
         body::after {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-            opacity: 0.4;
-            z-index: -1;
-            pointer-events: none;
+            opacity: 0.3; z-index: -1; pointer-events: none;
         }
 
         .greek-border {
@@ -50,64 +46,39 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 3px; }
-        .logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.6rem; color: var(--secondary); text-decoration: none; }
+        /* 1. Logo & Title Section */
+        header { padding: 10vh 0 5vh; text-align: center; }
+        .main-logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.5rem; color: var(--secondary); letter-spacing: 8px; margin-bottom: 0.5rem; }
+        .main-title { font-family: 'Cinzel', serif; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; font-weight: 900; text-transform: uppercase; }
 
-        header { padding: 12vh 0; text-align: center; }
-        .hero-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 1rem; font-weight: 900; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
-        .section-header { margin-top: 4rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem; }
-        .section-header h2 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; color: var(--secondary); }
+        .section-header { margin-top: 6rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem; }
+        .section-header h2 { font-family: 'Cinzel', serif; font-size: 2.2rem; letter-spacing: 5px; color: var(--secondary); text-transform: uppercase; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 5rem; }
-        
-        .card { 
-            background: var(--glass); 
-            padding: 2.5rem 1.5rem; 
-            border: 1px solid var(--border); 
-            backdrop-filter: blur(5px);
-            position: relative; 
-            overflow: hidden; 
-            transition: 0.3s; 
-        }
-        .card:hover { border-color: var(--secondary); background: rgba(189, 0, 0, 0.15); transform: translateY(-5px); }
-        
-        .card-num { position: absolute; top: 10px; right: 15px; font-family: 'Cinzel', serif; font-weight: 900; color: rgba(255,255,255,0.05); font-size: 3rem; }
-        .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
-        
-        /* The special requested formatting for Committee Titles */
-        .card h3 { 
-            font-family: 'Cinzel', serif; 
-            font-size: 1.6rem; 
-            line-height: 1.2;
-            margin-bottom: 1rem; 
-            border-bottom: 1px solid rgba(189,0,0,0.3); 
-            display: block;
-            padding-bottom: 5px;
-        }
-        .card h3 span { display: block; font-size: 1.2rem; opacity: 0.9; }
-
-        .card p { font-size: 0.85rem; color: #ccc; font-weight: 300; }
-
-        .reg-hub { padding: 6rem 0; background: rgba(0,0,0,0.4); margin-top: 4rem; border-top: 1px solid var(--border); }
-        .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        
+        /* 2. Registration Portal Section */
+        .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
         .reg-card { 
-            padding: 2rem; 
+            padding: 2.5rem 1.5rem; 
             border: 1px solid var(--border); 
             text-align: center; 
             transition: 0.4s; 
             text-decoration: none; 
             color: white;
-            background: rgba(0,0,0,0.3);
+            background: var(--glass);
             backdrop-filter: blur(10px);
         }
-        .reg-card:hover { background: var(--secondary); border-color: var(--secondary); }
-        .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .reg-card:hover { background: var(--secondary); border-color: var(--secondary); transform: translateY(-5px); }
+        .reg-card span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; display: block; margin-bottom: 0.5rem; }
+        .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.3rem; }
 
-        footer { padding: 4rem 0; text-align: center; background: rgba(0,0,0,0.5); }
+        /* 3. Committee Lineups Section */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding-bottom: 8rem; }
+        .card { background: var(--glass); padding: 2.5rem 1.5rem; border: 1px solid var(--border); backdrop-filter: blur(5px); position: relative; transition: 0.3s; }
+        .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
+        .card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; line-height: 1.2; margin-bottom: 1rem; border-bottom: 1px solid rgba(189,0,0,0.3); padding-bottom: 5px; }
+        .card h3 span { display: block; font-size: 1.1rem; opacity: 0.8; font-weight: 400; }
+        .card p { font-size: 0.85rem; color: #ccc; font-weight: 300; }
 
-        @media (max-width: 768px) { .hero-title { font-size: 3rem; } }
+        footer { padding: 4rem 0; text-align: center; background: rgba(0,0,0,0.5); border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
@@ -115,117 +86,55 @@
     <div class="greek-border"></div>
 
     <div class="container">
-        <nav>
-            <a href="#" class="logo">SISMUN—I</a>
-            <a href="#register" style="color: var(--secondary); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;">PORTAL OPEN</a>
-        </nav>
-
+        <!-- TOP: LOGO & TITLE -->
         <header>
-            <h1 class="hero-title">THE TWELVE<br>COUNCILS.</h1>
+            <div class="main-logo">SISMUN—I</div>
+            <h1 class="main-title">THE MODERN<br>ODYSSEY</h1>
         </header>
 
+        <!-- MIDDLE: REGISTRATION PORTALS -->
+        <div class="section-header"><h2>Registration Portals</h2></div>
+        <section class="reg-grid">
+            <!-- PASTE YOUR GOOGLE FORM LINKS IN THE href="" BELOW -->
+            <a href="PASTE_EB_LINK_HERE" class="reg-card">
+                <span>Governance</span>
+                <h4>Register for EB</h4>
+            </a>
+            <a href="PASTE_SINGLE_DELEGATION_LINK_HERE" class="reg-card">
+                <span>Individual</span>
+                <h4>Single Delegation</h4>
+            </a>
+            <a href="PASTE_DOUBLE_DELEGATION_LINK_HERE" class="reg-card">
+                <span>Partnership</span>
+                <h4>Double Delegation</h4>
+            </a>
+            <a href="PASTE_CA_LINK_HERE" class="reg-card">
+                <span>Ambassador</span>
+                <h4>Register for CA</h4>
+            </a>
+        </section>
+
+        <!-- BOTTOM: COMMITTEE LINEUPS -->
+        <div class="section-header"><h2>Committee Lineups</h2></div>
         <section class="grid">
-            <!-- Example of the requested formatting: UNSC [Line Break] Zeus -->
-            <div class="card">
-                <div class="card-num">VIII</div>
-                <h4>The King</h4>
-                <h3>UNSC<span>Zeus</span></h3>
-                <p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p>
-            </div>
-
-            <!-- Applying same format to others -->
-            <div class="card">
-                <div class="card-num">I</div>
-                <h4>The Strategist</h4>
-                <h3>DISEC<span>Ares</span></h3>
-                <p>Disarmament and International Security. Addressing global conflict with the precision of war.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">II</div>
-                <h4>The Merchant</h4>
-                <h3>WTO<span>Hermes</span></h3>
-                <p>World Trade Organization. Navigating modern silk roads under the watchful eye of commerce.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">III</div>
-                <h4>The Judge</h4>
-                <h3>UNODC<span>Minos</span></h3>
-                <p>Drugs and Crime. Imposing order and justice upon the shadows of the global underworld.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">IV</div>
-                <h4>The Celestial</h4>
-                <h3>UNOOSA<span>Ouranos</span></h3>
-                <p>Outer Space Affairs. Looking toward the heavens to govern the final frontier.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">V</div>
-                <h4>The Nurturer</h4>
-                <h3>UNICEF<span>Demeter</span></h3>
-                <p>The Children’s Fund. Protecting future generations and the harvest of human potential.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">VI</div>
-                <h4>The Sun-Forge</h4>
-                <h3>IAEA<span>Apollo</span></h3>
-                <p>Atomic Energy Agency. Managing the power of the sun with absolute caution.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">VII</div>
-                <h4>The Architect</h4>
-                <h3>CCC<span>Hephaestus</span></h3>
-                <p>Continuous Crisis Committee. Forging solutions as the world shifts in real-time.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">IX</div>
-                <h4>The Shadow</h4>
-                <h3>HUNSC<span>Hades</span></h3>
-                <p>Historical Security Council. Delving into the past to rewrite the fate of the unseen.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">X</div>
-                <h4>The Weaver</h4>
-                <h3>AHLC<span>Clotho</span></h3>
-                <p>Alternate History Lahore Conference. Spanning the threads of "What If".</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">XI</div>
-                <h4>The Muse</h4>
-                <h3>IPC<span>Calliope</span></h3>
-                <p>International Press Corps. Recording the epic and telling the stories of the gods.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-num">XII</div>
-                <h4>The Victor</h4>
-                <h3>FIA<span>Nike</span></h3>
-                <p>Formula 1 Council. Precision, speed, and the pursuit of the laurel wreath.</p>
-            </div>
+            <div class="card"><h4>The King</h4><h3>UNSC<span>Zeus</span></h3><p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p></div>
+            <div class="card"><h4>The Strategist</h4><h3>DISEC<span>Ares</span></h3><p>Disarmament and International Security. Addressing global conflict with the precision of war.</p></div>
+            <div class="card"><h4>The Merchant</h4><h3>WTO<span>Hermes</span></h3><p>World Trade Organization. Navigating modern silk roads under the watchful eye of commerce.</p></div>
+            <div class="card"><h4>The Judge</h4><h3>UNODC<span>Minos</span></h3><p>Drugs and Crime. Imposing order and justice upon the shadows of the global underworld.</p></div>
+            <div class="card"><h4>The Celestial</h4><h3>UNOOSA<span>Ouranos</span></h3><p>Outer Space Affairs. Looking toward the heavens to govern the final frontier.</p></div>
+            <div class="card"><h4>The Nurturer</h4><h3>UNICEF<span>Demeter</span></h3><p>The Children’s Fund. Protecting future generations and the harvest of human potential.</p></div>
+            <div class="card"><h4>The Sun-Forge</h4><h3>IAEA<span>Apollo</span></h3><p>Atomic Energy Agency. Managing the power of the sun with absolute caution.</p></div>
+            <div class="card"><h4>The Architect</h4><h3>CCC<span>Hephaestus</span></h3><p>Continuous Crisis Committee. Forging solutions as the world shifts in real-time.</p></div>
+            <div class="card"><h4>The Shadow</h4><h3>HUNSC<span>Hades</span></h3><p>Historical Security Council. Delving into the past to rewrite the fate of the unseen.</p></div>
+            <div class="card"><h4>The Weaver</h4><h3>AHLC<span>Clotho</span></h3><p>Alternate History Lahore Conference. Spanning the threads of "What If".</p></div>
+            <div class="card"><h4>The Muse</h4><h3>IPC<span>Calliope</span></h3><p>International Press Corps. Recording the epic and telling the stories of the gods.</p></div>
+            <div class="card"><h4>The Victor</h4><h3>FIA<span>Nike</span></h3><p>Formula 1 Council. Precision, speed, and the pursuit of the laurel wreath.</p></div>
         </section>
-
-        <section id="register" class="reg-hub">
-            <div class="section-header"><h2>The Portal</h2></div>
-            <div class="reg-grid">
-                <a href="#" class="reg-card"><h4>Register for EB</h4></a>
-                <a href="#" class="reg-card"><h4>Single Delegation</h4></a>
-                <a href="#" class="reg-card"><h4>Double Delegation</h4></a>
-                <a href="#" class="reg-card"><h4>Register for CA</h4></a>
-            </div>
-        </section>
-
-        <footer>
-            <p style="font-family: 'Cinzel', serif; letter-spacing: 3px; color: #888;">SISMUN I | THE MODERN ODYSSEY</p>
-        </footer>
     </div>
+
+    <footer>
+        <p style="font-family: 'Cinzel', serif; letter-spacing: 3px; color: #888;">EST. 2026 | SISMUN I</p>
+    </footer>
 
 </body>
 </html>
