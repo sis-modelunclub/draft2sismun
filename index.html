@@ -11,16 +11,16 @@
             --primary: #2b2828;
             --secondary: #bd0000;
             --text: #f4f4f4;
-            --glass: rgba(0, 0, 0, 0.7);
-            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(0, 0, 0, 0.6);
+            --border: rgba(255, 255, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background-color: var(--primary); 
-            /* REPLACE URL BELOW FOR BACKGROUND IMAGE */
-            background: linear-gradient(rgba(43, 40, 40, 0.9), rgba(43, 40, 40, 0.9)), 
+            /* LIGHTENED THE OVERLAY: Changed 0.9 to 0.6 for more brightness */
+            background: linear-gradient(rgba(43, 40, 40, 0.6), rgba(43, 40, 40, 0.6)), 
                         url('background.jpg.png'); 
             background-size: cover;
             background-attachment: fixed;
@@ -30,12 +30,15 @@
             scroll-behavior: smooth;
         }
 
+        /* CARBON OVERLAY ADJUSTMENT */
         body::after {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-            opacity: 0.3; z-index: -1; pointer-events: none;
+            opacity: 0.15; /* Lowered from 0.3 to 0.15 to let the image shine through */
+            z-index: -1; 
+            pointer-events: none;
         }
 
         .greek-border {
@@ -46,15 +49,13 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        /* 1. SISMUN - I Logo and Title Section */
         header { padding: 12vh 0 6vh; text-align: center; }
         .main-logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.2rem; color: var(--secondary); letter-spacing: 12px; margin-bottom: 0.5rem; display: block; }
-        .main-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 9vw, 5.5rem); line-height: 1; font-weight: 900; text-transform: uppercase; letter-spacing: -2px; }
+        .main-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 9vw, 5.5rem); line-height: 1; font-weight: 900; text-transform: uppercase; text-shadow: 2px 4px 20px rgba(0,0,0,0.8); }
 
         .section-header { margin-top: 5rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem; }
         .section-header h2 { font-family: 'Cinzel', serif; font-size: 2rem; letter-spacing: 6px; color: var(--secondary); text-transform: uppercase; }
 
-        /* 2. Registration Portals Section */
         .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
         .reg-card { 
             padding: 3rem 1.5rem; 
@@ -64,21 +65,20 @@
             text-decoration: none; 
             color: white;
             background: var(--glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px); /* Subtle blur for readability */
         }
         .reg-card:hover { background: var(--secondary); border-color: var(--secondary); transform: scale(1.02); }
-        .reg-card span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.6; display: block; margin-bottom: 0.8rem; }
+        .reg-card span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; display: block; margin-bottom: 0.8rem; }
         .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; }
 
-        /* 3. Committee Lineups Section */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding-bottom: 8rem; }
-        .card { background: var(--glass); padding: 2.5rem 1.5rem; border: 1px solid var(--border); backdrop-filter: blur(5px); position: relative; transition: 0.3s; }
+        .card { background: var(--glass); padding: 2.5rem 1.5rem; border: 1px solid var(--border); backdrop-filter: blur(8px); position: relative; transition: 0.3s; }
         .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
-        .card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; line-height: 1.2; margin-bottom: 1rem; border-bottom: 1px solid rgba(189,0,0,0.3); padding-bottom: 5px; }
-        .card h3 span { display: block; font-size: 1.1rem; opacity: 0.8; font-weight: 400; color: #fff; }
-        .card p { font-size: 0.85rem; color: #bbb; font-weight: 300; }
+        .card h3 { font-family: 'Cinzel', serif; font-size: 1.6rem; line-height: 1.2; margin-bottom: 1rem; border-bottom: 1px solid rgba(189,0,0,0.5); padding-bottom: 5px; }
+        .card h3 span { display: block; font-size: 1.1rem; opacity: 0.9; font-weight: 400; color: #fff; }
+        .card p { font-size: 0.85rem; color: #ddd; font-weight: 300; }
 
-        footer { padding: 4rem 0; text-align: center; background: rgba(0,0,0,0.5); border-top: 1px solid var(--border); }
+        footer { padding: 4rem 0; text-align: center; background: rgba(0,0,0,0.7); border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
@@ -86,34 +86,19 @@
     <div class="greek-border"></div>
 
     <div class="container">
-        <!-- HEADER -->
         <header>
             <span class="main-logo">SISMUN—I</span>
             <h1 class="main-title">THE UPROAR<br>OF CHANGE</h1>
         </header>
 
-        <!-- REGISTRATION -->
         <div class="section-header"><h2>Registration Portals</h2></div>
         <section class="reg-grid">
-            <a href="YOUR_EB_LINK" class="reg-card">
-                <span>Governance</span>
-                <h4>Register for EB</h4>
-            </a>
-            <a href="YOUR_SINGLE_LINK" class="reg-card">
-                <span>Individual</span>
-                <h4>Single Delegation</h4>
-            </a>
-            <a href="YOUR_DOUBLE_LINK" class="reg-card">
-                <span>Partnership</span>
-                <h4>Double Delegation</h4>
-            </a>
-            <a href="YOUR_CA_LINK" class="reg-card">
-                <span>Ambassador</span>
-                <h4>Register for CA</h4>
-            </a>
+            <a href="YOUR_EB_LINK" class="reg-card"><span>Governance</span><h4>Register for EB</h4></a>
+            <a href="YOUR_SINGLE_LINK" class="reg-card"><span>Individual</span><h4>Single Delegation</h4></a>
+            <a href="YOUR_DOUBLE_LINK" class="reg-card"><span>Partnership</span><h4>Double Delegation</h4></a>
+            <a href="YOUR_CA_LINK" class="reg-card"><span>Ambassador</span><h4>Register for CA</h4></a>
         </section>
 
-        <!-- COMMITTEES -->
         <div class="section-header"><h2>Committee Lineups</h2></div>
         <section class="grid">
             <div class="card"><h4>The King</h4><h3>UNSC<span>Zeus</span></h3><p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p></div>
