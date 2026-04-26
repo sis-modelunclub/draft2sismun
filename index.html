@@ -3,66 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Project Hub</title>
+    <title>SISMUN-I | The Modern Odyssey</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --accent: #00ff66; /* Neon Green */
-            --text: #f0f0f0;
-            --card-bg: #1a1a1a;
+            --primary: #2b2828;
+            --secondary: #bd0000;
+            --text: #ffffff;
+            --gold-accent: #d4af37; /* A hint of gold for that divine touch */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
-            background-color: var(--bg); 
+            background-color: var(--primary); 
             color: var(--text); 
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        /* Greek Key Pattern Border */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; height: 6px;
+            background: var(--secondary);
+            z-index: 1000;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         /* Navigation */
-        nav { padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
-        .nav-links a { color: var(--text); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        nav { 
+            padding: 2.5rem 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.8rem; border-left: 4px solid var(--secondary); padding-left: 15px; }
+        .nav-links a { color: var(--text); text-decoration: none; margin-left: 2.5rem; font-size: 0.8rem; transition: var(--transition); font-weight: 600; }
+        .nav-links a:hover { color: var(--secondary); }
 
         /* Hero Section */
-        header { padding: 10vh 0; border-bottom: 1px solid #333; }
-        h1 { font-size: clamp(3rem, 10vw, 6rem); line-height: 1; margin-bottom: 1.5rem; font-weight: 700; }
-        .hero-desc { font-size: 1.2rem; max-width: 600px; color: #aaa; margin-bottom: 2rem; }
-        .btn { 
+        header { 
+            padding: 15vh 0; 
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .hero-title { 
+            font-family: 'Cinzel', serif; 
+            font-size: clamp(3.5rem, 12vw, 8rem); 
+            line-height: 0.9; 
+            margin-bottom: 2rem; 
+            font-weight: 900; 
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { 
+            font-size: 1.1rem; 
+            max-width: 700px; 
+            margin: 0 auto 3rem; 
+            color: #aaa; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .cta-btn { 
             display: inline-block; 
-            padding: 1rem 2rem; 
-            background: var(--accent); 
-            color: #000; 
+            padding: 1.2rem 3.5rem; 
+            background: var(--secondary); 
+            color: #fff; 
             text-decoration: none; 
+            font-family: 'Cinzel', serif;
             font-weight: 700; 
-            transition: transform 0.2s;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            border: 1px solid var(--secondary);
         }
-        .btn:hover { transform: translateY(-3px); }
+        .cta-btn:hover { background: transparent; transform: scale(1.05); border-color: #fff; }
 
-        /* Grid Section */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 5rem 0; }
+        /* Committee Cards */
+        .committees { padding: 8rem 0; }
+        .section-label { font-family: 'Cinzel', serif; color: var(--secondary); margin-bottom: 1rem; display: block; letter-spacing: 4px; font-weight: 700;}
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        
         .card { 
-            background: var(--card-bg); 
-            padding: 2rem; 
-            border: 1px solid #333; 
-            transition: 0.3s;
+            background: rgba(255,255,255,0.02); 
+            padding: 3rem 2rem; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            position: relative;
+            transition: var(--transition);
         }
-        .card:hover { border-color: var(--accent); }
-        .card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
-        .card p { color: #888; font-size: 0.95rem; }
+        .card:hover { 
+            background: rgba(189, 0, 0, 0.05); 
+            border-color: var(--secondary); 
+            transform: translateY(-10px);
+        }
+        .card h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 1rem; }
+        .card p { color: #888; font-size: 0.9rem; }
 
         /* Footer */
-        footer { padding: 4rem 0; text-align: center; border-top: 1px solid #333; color: #555; }
+        footer { padding: 5rem 0; text-align: center; border-top: 1px solid #333; opacity: 0.6; font-size: 0.8rem; letter-spacing: 1px;}
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .hero-title { font-size: 4rem; }
         }
     </style>
 </head>
@@ -70,37 +121,42 @@
 
     <div class="container">
         <nav>
-            <div class="logo">O.A. / LOGO</div>
+            <div class="logo">SISMUN-I</div>
             <div class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="mailto:your@email.com">Contact</a>
+                <a href="#about">The Oracle</a>
+                <a href="#committees">Committees</a>
+                <a href="#secretariat">Secretariat</a>
+                <a href="#apply" style="color: var(--secondary);">Register</a>
             </div>
         </nav>
 
         <header>
-            <h1>CREATIVE<br>DIRECTOR.</h1>
-            <p class="hero-desc">Building digital experiences, managing high-stakes projects, and designing visual narratives from the ground up.</p>
-            <a href="#work" class="btn">VIEW PROJECTS</a>
+            <span class="section-label">A New Pantheon Rises</span>
+            <h1 class="hero-title">SISMUN<br>FIRST EDITION</h1>
+            <p class="hero-subtitle">Where ancient diplomacy meets the digital age. Join the assembly of the modern gods to reshape the global narrative.</p>
+            <a href="#apply" class="cta-btn">ASCEND TO DEBATE</a>
         </header>
 
-        <section id="work" class="grid">
-            <div class="card">
-                <h3>01. Identity Design</h3>
-                <p>Strategic branding and visual systems for modern organizations and ventures.</p>
-            </div>
-            <div class="card">
-                <h3>02. Digital Architecture</h3>
-                <p>From UI/UX wireframes to fully functional web deployments through Git.</p>
-            </div>
-            <div class="card">
-                <h3>03. Leadership & Strategy</h3>
-                <p>Coordinating large-scale events and organizational structures with precision.</p>
+        <section id="committees" class="committees">
+            <span class="section-label">The Councils</span>
+            <div class="grid">
+                <div class="card">
+                    <h3>ZEUS</h3>
+                    <p>UN Security Council. Decisive power, absolute authority. Addressing global security threats with thunderous resolve.</p>
+                </div>
+                <div class="card">
+                    <h3>ATHENA</h3>
+                    <p>UN Human Rights Council. Wisdom in justice. Championing the rights of the voiceless through strategic diplomacy.</p>
+                </div>
+                <div class="card">
+                    <h3>HERMES</h3>
+                    <p>International Press Corps. The messenger. Crafting the narrative and ensuring the truth travels faster than light.</p>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 | Built with Code & Intent.</p>
+            <p>&copy; 2026 SISMUN-I | THE MODERN RETROSPECTIVE. ALL RIGHTS RESERVED.</p>
         </footer>
     </div>
 
