@@ -9,9 +9,9 @@
     <style>
         :root {
             --primary: #2b2828;
-            --secondary: #bd0000;
+            --secondary: #bd0000; /* Blood Red */
             --text: #f4f4f4;
-            --glass: rgba(0, 0, 0, 0.6);
+            --glass: rgba(0, 0, 0, 0.5);
             --border: rgba(255, 255, 255, 0.15);
         }
 
@@ -19,8 +19,9 @@
         
         body { 
             background-color: var(--primary); 
-            background: linear-gradient(rgba(43, 40, 40, 0.6), rgba(43, 40, 40, 0.6)), 
-                        url('background.jpg.png'); 
+            /* BACKGROUND IMAGE LOGIC */
+            background: linear-gradient(rgba(43, 40, 40, 0.5), rgba(43, 40, 40, 0.5)), 
+                        url('background.jpg.png');
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
@@ -29,6 +30,7 @@
             scroll-behavior: smooth;
         }
 
+        /* Subtle Carbon Overlay */
         body::after {
             content: "";
             position: fixed;
@@ -49,38 +51,42 @@
 
         header { padding: 12vh 0 6vh; text-align: center; }
         .main-logo { font-family: 'Cinzel', serif; font-weight: 900; font-size: 2.2rem; color: var(--secondary); letter-spacing: 12px; margin-bottom: 0.5rem; display: block; }
-        .main-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 9vw, 5.5rem); line-height: 1; font-weight: 900; text-transform: uppercase; }
+        .main-title { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 9vw, 5.5rem); line-height: 1; font-weight: 900; text-transform: uppercase; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 
         .section-header { margin-top: 5rem; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 3rem; }
         .section-header h2 { font-family: 'Cinzel', serif; font-size: 2rem; letter-spacing: 6px; color: var(--secondary); text-transform: uppercase; }
 
+        /* REGISTRATION CARDS */
         .reg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 2rem; }
         
         .reg-card { 
             padding: 3rem 1.5rem; 
             border: 1px solid var(--border); 
             text-align: center; 
-            transition: 0.4s; 
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
             text-decoration: none; 
             color: white;
             background: var(--glass);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(2px); /* Initial subtle blur */
             position: relative;
             overflow: hidden;
         }
 
-        /* ELEVATED HOVER STATE */
+        /* THE ELEVATED HOVER EFFECT */
         .reg-card:hover { 
-            background: var(--secondary); 
-            border-color: var(--secondary); 
-            transform: scale(1.02);
-            /* This triggers the grain filter below */
-            filter: url(#noiseFilter); 
+            background: rgba(189, 0, 0, 0.9); /* Blood Red with high opacity */
+            border-color: var(--text);
+            transform: translateY(-8px);
+            backdrop-filter: blur(20px); /* Heavy blur on the image behind the card */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            z-index: 10;
         }
 
         .reg-card span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.8; display: block; margin-bottom: 0.8rem; }
-        .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; }
+        .reg-card h4 { font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700; transition: 0.3s; }
+        .reg-card:hover h4 { letter-spacing: 2px; }
 
+        /* COMMITTEES */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding-bottom: 8rem; }
         .card { background: var(--glass); padding: 2.5rem 1.5rem; border: 1px solid var(--border); backdrop-filter: blur(8px); position: relative; transition: 0.3s; }
         .card h4 { font-family: 'Cinzel', serif; color: var(--secondary); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem; }
@@ -89,9 +95,6 @@
         .card p { font-size: 0.85rem; color: #ddd; font-weight: 300; }
 
         footer { padding: 4rem 0; text-align: center; background: rgba(0,0,0,0.7); border-top: 1px solid var(--border); }
-
-        /* Hiding the SVG container from view */
-        .svg-filter-container { position: absolute; width: 0; height: 0; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -114,7 +117,6 @@
 
         <div class="section-header"><h2>Committee Lineups</h2></div>
         <section class="grid">
-            <!-- Committees remain same -->
             <div class="card"><h4>The King</h4><h3>UNSC<span>Zeus</span></h3><p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p></div>
             <div class="card"><h4>The Strategist</h4><h3>DISEC<span>Ares</span></h3><p>Disarmament and International Security. Addressing global conflict with the precision of war.</p></div>
             <div class="card"><h4>The Merchant</h4><h3>WTO<span>Hermes</span></h3><p>World Trade Organization. Navigating modern silk roads under the watchful eye of commerce.</p></div>
@@ -133,20 +135,6 @@
     <footer>
         <p style="font-family: 'Cinzel', serif; letter-spacing: 3px; color: #888;">EST. 2026 | SISMUN I</p>
     </footer>
-
-    <!-- NOISE FILTER SVG -->
-    <div class="svg-filter-container">
-        <svg xmlns="http://www.w3.org/2000/svg">
-            <filter id="noiseFilter">
-                <feTurbulence type="fractalNoise" baseFrequency="0.6" stitchTiles="stitch" />
-                <feColorMatrix type="saturate" values="0" />
-                <feComponentTransfer>
-                    <feFuncA type="linear" slope="0.15" /> <!-- Adjust slope for noise intensity -->
-                </feComponentTransfer>
-                <feComposite operator="in" in2="SourceGraphic" />
-            </filter>
-        </svg>
-    </div>
 
 </body>
 </html>
