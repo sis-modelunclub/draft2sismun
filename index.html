@@ -18,7 +18,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; } /* Enables the smooth sliding effect */
+        html { scroll-behavior: smooth; }
 
         body { 
             background-color: var(--primary); 
@@ -41,7 +41,7 @@
             pointer-events: none;
         }
 
-        /* STICKY NAVIGATION */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -88,7 +88,7 @@
 
         .greek-border {
             width: 100%; height: 8px; background: var(--secondary);
-            margin-top: 60px; /* Offset for fixed nav */
+            margin-top: 60px;
             -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0 0h20v20H0V0zm2 2v16h16V2H2zm2 2h12v4h-2V6H6v8h8v-2h-2v2H8V8h8V4H4z" fill="white"/></svg>');
             mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M0 0h20v20H0V0zm2 2v16h16V2H2zm2 2h12v4h-2V6H6v8h8v-2h-2v2H8V8h8V4H4z" fill="white"/></svg>');
         }
@@ -154,19 +154,35 @@
     <div class="greek-border"></div>
 
     <div class="container">
+        <!-- HOME SECTION -->
         <header id="home">
             <span class="main-logo-text">SISMUN—I</span>
             <h1 class="main-title">THE UPROAR<br>OF CHANGE</h1>
         </header>
 
+        <!-- REGISTRATION SECTION -->
         <div class="section-header" id="portals"><h2>Registration Portals</h2></div>
         <section class="reg-grid">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWFH_3E4aoOPZO4RGtodCU-FiRC0GRjE6IIzuVJkUon__itg/viewform" class="reg-card"><span>Governance</span><h4>Register for EB</h4></a>
-            <a href="YOUR_SINGLE_LINK" class="reg-card"><span>Individual</span><h4>Single Delegation</h4></a>
-            <a href="YOUR_DOUBLE_LINK" class="reg-card"><span>Partnership</span><h4>Double Delegation</h4></a>
-            <a href="YOUR_CA_LINK" class="reg-card"><span>Ambassador</span><h4>Register for CA</h4></a>
+            <!-- ALL LINKS TRIGGER A NEW TAB CLEANLY -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWFH_3E4aoOPZO4RGtodCU-FiRC0GRjE6IIzuVJkUon__itg/viewform" target="_blank" rel="noopener noreferrer" class="reg-card">
+                <span>Governance</span>
+                <h4>Register for EB</h4>
+            </a>
+            <a href="YOUR_SINGLE_LINK" target="_blank" rel="noopener noreferrer" class="reg-card">
+                <span>Individual</span>
+                <h4>Single Delegation</h4>
+            </a>
+            <a href="YOUR_DOUBLE_LINK" target="_blank" rel="noopener noreferrer" class="reg-card">
+                <span>Partnership</span>
+                <h4>Double Delegation</h4>
+            </a>
+            <a href="YOUR_CA_LINK" target="_blank" rel="noopener noreferrer" class="reg-card">
+                <span>Ambassador</span>
+                <h4>Register for CA</h4>
+            </a>
         </section>
 
+        <!-- COMMITTEES SECTION -->
         <div class="section-header" id="lineups"><h2>Committee Lineups</h2></div>
         <section class="grid">
             <div class="card"><h4>The King</h4><h3>UNSC<span>Zeus</span></h3><p>Security Council. The ultimate authority. Where the thunder of diplomacy shapes the fate of nations.</p></div>
