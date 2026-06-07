@@ -122,7 +122,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
         /* HEADER / HERO */
-        header { padding: 32vh 0 16vh; text-align: center; }
+        header { padding: 30vh 0 14vh; text-align: center; }
         
         .main-logo-text { 
             font-family: 'Cinzel', serif; 
@@ -150,6 +150,63 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 2px 10px rgba(0,0,0,0.6));
+            margin-bottom: 3rem;
+        }
+
+        /* COUNTDOWN TIMER & HEARTBEAT ENGINE */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: 'Cinzel', serif;
+        }
+        .countdown-box {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 1.2rem 1rem;
+            min-width: 100px;
+            border-radius: 2px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: border-color 0.3s ease;
+            
+            /* High-End Heartbeat Rhythm Trigger */
+            animation: rhythmicPulse 1.6s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+        
+        /* Double-Thump Heartbeat Keyframes */
+        @keyframes rhythmicPulse {
+            0% { transform: scale(1); border-color: var(--border); }
+            8% { transform: scale(1.04); border-color: rgba(189, 0, 0, 0.4); box-shadow: 0 10px 30px rgba(189, 0, 0, 0.15); }
+            15% { transform: scale(1); border-color: var(--border); }
+            22% { transform: scale(1.06); border-color: rgba(189, 0, 0, 0.5); box-shadow: 0 10px 35px rgba(189, 0, 0, 0.25); }
+            35% { transform: scale(1); border-color: var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+            100% { transform: scale(1); }
+        }
+
+        .countdown-box:hover {
+            border-color: rgba(189, 0, 0, 0.7) !important;
+        }
+        .countdown-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+            background: var(--metal-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .countdown-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            font-weight: 600;
         }
 
         /* SECTIONS */
@@ -236,14 +293,23 @@
                 padding: 1.2rem 1.5rem;
             }
             .nav-links { gap: 2rem; }
-            header { padding: 26vh 0 10vh; }
+            header { padding: 26vh 0 8vh; }
             .section-header h2 { font-size: 1.6rem; letter-spacing: 4px; }
             .card { padding: 2.5rem 1.5rem; }
+            
+            .countdown-container { gap: 1rem; }
+            .countdown-box { min-width: 80px; padding: 1rem 0.5rem; }
+            .countdown-num { font-size: 1.7rem; }
+            .countdown-label { font-size: 0.55rem; letter-spacing: 2px; }
         }
 
         @media (max-width: 480px) {
             .nav-links { gap: 1.4rem; }
             .nav-links a { font-size: 0.7rem; letter-spacing: 2px; }
+            .countdown-container { gap: 0.6rem; }
+            .countdown-box { min-width: 68px; padding: 0.8rem 0.4rem; }
+            .countdown-num { font-size: 1.4rem; }
+            .countdown-label { font-size: 0.5rem; letter-spacing: 1px; }
         }
     </style>
 </head>
@@ -270,6 +336,26 @@
         <header id="home">
             <span class="main-logo-text">SISMUN—I</span>
             <h1 class="main-title">RISE ABOVE THE RIFT</h1>
+            
+            <!-- REAL-TIME COUNTDOWN TIMER WITH HEARTBEAT EFFECT -->
+            <div class="countdown-container" id="countdown">
+                <div class="countdown-box">
+                    <span class="countdown-num" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="minutes">00</span>
+                    <span class="countdown-label">Mins</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="countdown-num" id="seconds">00</span>
+                    <span class="countdown-label">Secs</span>
+                </div>
+            </div>
         </header>
 
         <!-- REGISTRATION SECTION -->
@@ -314,6 +400,36 @@
     <footer>
         <p style="font-family: 'Cinzel', serif; letter-spacing: 4px; color: #555; font-weight: 600; font-size: 0.85rem;">EST. 2026 | SISMUN I</p>
     </footer>
+
+    <!-- COUNTDOWN LIVE ENGINE -->
+    <script>
+        // CONFERENCE TARGET DATE: SEPTEMBER 4th, 2026
+        const targetLaunchDate = new Date("September 4, 2026 09:00:00").getTime();
+
+        const runTimer = setInterval(function() {
+            const rightNow = new Date().getTime();
+            const timeDifference = targetLaunchDate - rightNow;
+
+            const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hoursLeft = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const secondsLeft = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(daysLeft).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hoursLeft).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutesLeft).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(secondsLeft).padStart(2, '0');
+
+            if (timeDifference < 0) {
+                clearInterval(runTimer);
+                document.getElementById("countdown").innerHTML = `
+                    <div class="countdown-box" style="width: 100%; max-width: 450px; animation: none;">
+                        <span class="countdown-num" style="font-size: 1.4rem; letter-spacing: 4px;">THE RIFT HAS OPENED</span>
+                    </div>
+                `;
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
